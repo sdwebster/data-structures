@@ -1,4 +1,4 @@
-var Stack = function() {
+var Stack = function(x, y, z) {
   var newStack = Object.create(stackMethods);
   newStack.storage = {};
   newStack.length = 0;
@@ -21,5 +21,3 @@ var stackMethods = {
     return this.length;
   }
 };
-
-

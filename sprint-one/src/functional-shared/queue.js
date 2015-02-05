@@ -13,7 +13,7 @@ var Queue = function(){
 
 var queueMethods = {};
 
-Queue.queueMethods.enqueue = function(val) {
+queueMethods.enqueue = function(val) {
   this.storage[this.end] = val;
   this.end++;
 };
