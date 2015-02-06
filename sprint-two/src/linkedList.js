@@ -22,9 +22,20 @@ var LinkedList = function(){
   };
 
   list.contains = function(target){
-
+    var result = false;
+    // Supa hacka numba 1 // ok not really but still
+    // for(var node = this.head;
+    //     node !== null && !result;
+    //     node = node.next) {
+    //   result = node.value === target;
+    // }
+    var node = this.head;
+    while(node !== null && !result) {
+      result = node.value === target;
+      node = node.next;
+    }
+    return result;
   };
-
   return list;
 };
 
