@@ -3,23 +3,44 @@ var LinkedList = function(){
   list.head = null;
   list.tail = null;
 
-  list.addToTail = function(value){
+  list.addToHead = function(value){
     var node = Node(value);
-    this.tail ? this.tail.next = node : this.head = node;
-    this.tail = node;
+    if (this.head) {
+      this.head.previous = node;
+      node.next = this.head;
+    } else {
+      this.tail = node;
+    }
+    this.head = node;
   };
 
   list.removeHead = function(){
     var currentHead = this.head;
     var result = currentHead.value;
     this.head = this.head.next;
-    // is currentHead going to garbage collect?
-    currentHead.next = null;
-    currentHead.value = null;
+    this.head.previous = null;
     currentHead = null;
-    //currentHead.explode(); === null all the things
     return result;
   };
+  list.removeTail = function(){
+    var currentTail = this.tail;
+    var result = currentTail.value;
+    this.tail = this.tail.previous;
+    this.tail.next = null;
+    currentTail = null;
+    return result;
+  };
+  list.addToTail = function(value){
+    var node = Node(value);
+    if (this.tail) {
+      this.tail.next = node;
+      node.previous = this.tail;
+    } else {
+      this.head = node;
+    }
+    this.tail = node;
+  };
+
 
   list.contains = function(target){
     var result = false;
@@ -44,6 +65,7 @@ var Node = function(value){
 
   node.value = value;
   node.next = null;
+  node.previous = null;
 
   return node;
 };
