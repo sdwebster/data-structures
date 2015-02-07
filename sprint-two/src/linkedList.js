@@ -17,16 +17,20 @@ var LinkedList = function(){
   list.removeHead = function(){
     var currentHead = this.head;
     var result = currentHead.value;
-    this.head = this.head.next;
-    this.head.previous = null;
+    if (this.head.next) {
+      this.head = this.head.next;
+      this.head.previous = null;
+    }
     currentHead = null;
     return result;
   };
   list.removeTail = function(){
     var currentTail = this.tail;
     var result = currentTail.value;
-    this.tail = this.tail.previous;
-    this.tail.next = null;
+    if (this.head.previous) {
+      this.tail = this.tail.previous;
+      this.tail.next = null;
+    }
     currentTail = null;
     return result;
   };
