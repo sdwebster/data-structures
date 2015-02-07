@@ -29,7 +29,6 @@ Graph.prototype.hasEdge = function(fromNode, toNode){
       result = true;
     }
   });
-  debugger;
   return result;
 };
 
@@ -38,14 +37,13 @@ Graph.prototype.addEdge = function(fromNode, toNode){
 };
 
 Graph.prototype.removeEdge = function(fromNode, toNode){
-  var i = this.edges.indexOf( [fromNode, toNode] );
-  if( i !== -1 ) {
-    this.edges.splice(i, 1);
-  }
-  i = this.edges.indexOf( [toNode, fromNode] );
-  if( i !== -1 ) {
-    this.edges.splice(i, 1);
-  }
+  for (var i = 0, l = this.edges.length; i<l; i++){
+    var pair = this.edges[i];
+    if((pair[0] === fromNode && pair[1] === toNode) ||
+       (pair[0] === toNode && pair[1] === fromNode)) {
+      this.edges.splice(i, 1);
+    }
+  };
 };
 
 Graph.prototype.forEachNode = function(cb){
