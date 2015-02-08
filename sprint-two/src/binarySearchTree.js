@@ -16,7 +16,6 @@ var BinarySearchTree = function(val){
     } else {
       if (this.right) {
         this.right.insert(val);
-        debugger;
       } else {
         this.right = BinarySearchTree(val);
       }
@@ -43,7 +42,25 @@ var BinarySearchTree = function(val){
     !this.right || this.right.depthFirstLog(cb);
   };
   bstMethods.breadthFirstLog = function(cb) {
+    // could be a linked list/queue
+    // var thisGen = [this];
+    // var nextGen = [];
 
+    // while (thisGen.length > 0){
+    //   for(var i = 0, l = thisGen.length; i < l; i++) {
+    //     var node = thisGen[i];
+    //     console.log(node);
+    //     cb(node.value);
+    //     if(node.left !== undefined) {
+    //       nextGen.push(this.left);
+    //     }
+    //     if(node.right !== undefined) {
+    //       nextGen.push(this.right);
+    //     }
+    //   }
+    //   thisGen = nextGen;
+    //   nextGen = [];
+    // }
   }
 /*
  * Complexity: What is the time complexity of the above functions?
