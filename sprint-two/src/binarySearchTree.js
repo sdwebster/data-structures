@@ -43,6 +43,7 @@ var BinarySearchTree = function(val){
   };
   bstMethods.breadthFirstLog = function(cb) {
     // could be a linked list/queue
+
     // var thisGen = [this];
     // var nextGen = [];
 
